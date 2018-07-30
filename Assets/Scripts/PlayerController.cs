@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D playerRb;
     private Vector2 moveVelocity;
-    bool candMove = true;
 
     void Start()
     {
@@ -17,15 +16,9 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            moveVelocity = moveInput.normalized * speed;
-
-
-        if (candMove)
-        {
-            playerRb.MovePosition(playerRb.position + moveVelocity * Time.fixedDeltaTime);
-        }
-
+       Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+       moveVelocity = moveInput.normalized * speed;
+       playerRb.MovePosition(playerRb.position + moveVelocity * Time.fixedDeltaTime);
     }
 
 
